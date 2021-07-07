@@ -281,7 +281,7 @@ func TestE2EFullIntegration(t *testing.T) {
 			t.Skip("LDAP integration test requires connectivity to an LDAP server")
 		}
 
-		expectedUsername := env.SupervisorUpstreamLDAP.TestUserMailAttributeValue
+		expectedUsername := env.SupervisorUpstreamLDAP.TestUsernameAttributeValue
 		expectedGroups := env.SupervisorUpstreamLDAP.TestUserDirectGroupsDNs
 
 		// Create a ClusterRoleBinding to give our test user from the upstream read-only access to the cluster.
@@ -317,7 +317,7 @@ func TestE2EFullIntegration(t *testing.T) {
 				Base:   env.SupervisorUpstreamLDAP.UserSearchBase,
 				Filter: "",
 				Attributes: idpv1alpha1.LDAPIdentityProviderUserSearchAttributes{
-					Username: env.SupervisorUpstreamLDAP.TestUserMailAttributeName,
+					Username: env.SupervisorUpstreamLDAP.TestUsernameAttributeName,
 					UID:      env.SupervisorUpstreamLDAP.TestUserUniqueIDAttributeName,
 				},
 			},
